@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Main Characters/Ninja Frog/spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://Menu/Buttons/ControlArrow.png" type="Texture" id=3]
+[ext_resource path="res://TouchControls.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fall"
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "values": [ 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "slide"
 length = 0.6
 tracks/0/type = "value"
@@ -88,12 +88,12 @@ tracks/0/keys = {
 "values": [ 39, 39, 39, 40, 40, 41, 42 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 19.394
 height = 5.74518
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 123.376, 383.62 )
+position = Vector2( 103.95, 117.077 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -111,11 +111,11 @@ anims/fall = SubResource( 1 )
 anims/idle = SubResource( 2 )
 anims/jump = SubResource( 3 )
 anims/run = SubResource( 4 )
-anims/slide = SubResource( 6 )
+anims/slide = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 9.10126 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="RightWall" type="Node2D" parent="."]
 editor/display_folded = true
@@ -147,27 +147,4 @@ enabled = true
 cast_to = Vector2( -15, 0 )
 collide_with_areas = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 20, 425 )
-scale = Vector2( 1.5, 1.5 )
-normal = ExtResource( 3 )
-action = "move_left"
-visibility_mode = 1
-
-[node name="RightButton" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 220, 517 )
-rotation = 3.14159
-scale = Vector2( 1.5, 1.5 )
-normal = ExtResource( 3 )
-action = "move_right"
-visibility_mode = 1
-
-[node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 902, 425 )
-rotation = 1.5708
-scale = Vector2( 1.5, 1.5 )
-normal = ExtResource( 3 )
-action = "jump"
-visibility_mode = 1
+[node name="Buttons" parent="." instance=ExtResource( 3 )]
