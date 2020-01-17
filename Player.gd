@@ -80,9 +80,9 @@ func play_animation(direction: Vector2, velocity: Vector2) -> void:
 	
 func get_wall_slide() -> float:
 	for raycast in left_wall_raycasts.get_children():
-		if raycast.is_colliding():
+		if raycast.is_colliding() and Input.is_action_pressed("move_left"):
 			return 1.0
 	for raycast in right_wall_raycasts.get_children():
-		if raycast.is_colliding():
+		if raycast.is_colliding() and Input.is_action_pressed("move_right"):
 			return -1.0
 	return 0.0

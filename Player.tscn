@@ -89,8 +89,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 19.394
-height = 5.74518
+radius = 16.7058
+height = 9.77237
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 103.95, 117.077 )
@@ -98,7 +98,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-friction = 0.8
+friction = 0.7
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
